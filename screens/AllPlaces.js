@@ -1,5 +1,7 @@
+import PlacesList from '../components/Places/PlacesList'
+
 const AllPlaces = () => {
-  return
+  return <PlacesList />
 }
 
 export default AllPlaces
