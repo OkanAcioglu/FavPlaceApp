@@ -10,7 +10,7 @@ import {
 import { useEffect, useState } from 'react'
 import { getMapPreview } from '../../util/location'
 
-function LocationPicker() {
+function LocationPicker({ onPickLocation }) {
   const [pickedLocation, setPickedLocation] = useState()
   const isFocused = useIsFocused()
 
@@ -29,6 +29,10 @@ function LocationPicker() {
       setPickedLocation(mapPickedLocation)
     }
   }, [route, isFocused])
+
+  useEffect(() => {
+    onPickLocation(pickedLocation)
+  }, [pickedLocation, onPickLocation])
 
   async function verifyPermissions() {
     if (
